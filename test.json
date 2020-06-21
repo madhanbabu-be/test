@@ -1,0 +1,41 @@
+{
+"containerDefinitions": [
+   {
+     "portMappings": [
+       {
+         "hostPort": 0,
+         "protocol": "tcp",
+         "containerPort": 9030
+       }
+     ],
+     "cpu": %ECSCPU%,
+     "environment": [
+       {
+         "name": "test-variable",
+         "value": "%test-variable%"
+       }
+     ],
+     "mountPoints": [
+       {
+         "containerPath": "/app/logs/",
+         "sourceVolume": "logs"
+       }
+     ],
+     "memory": %ECSMEM%,
+     "volumesFrom": [],
+     "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
+     "essential": true,
+     "name": "%CONTAINER_NAME%"
+   }
+ ],
+ "placementConstraints": [],
+ "family": "%CONTAINER_NAME%",
+ "volumes": [
+   {
+     "name": "logs",
+     "host": {
+       "sourcePath": "/var/log/nexgen-iot/api/"
+      }
+   }
+ ]
+}
