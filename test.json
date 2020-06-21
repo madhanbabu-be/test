@@ -5,10 +5,10 @@
        {
          "hostPort": 0,
          "protocol": "tcp",
-         "containerPort": 9030
+         "containerPort": 80
        }
      ],
-     "cpu": "%ECSCPU%",
+     "cpu": 0,
      "environment": [
        {
          "name": "test-variable",
@@ -21,20 +21,20 @@
          "sourceVolume": "logs"
        }
      ],
-     "memory": "%ECSMEM%",
+     "memory": "512",
      "volumesFrom": [],
-     "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
+     "image": "image",
      "essential": true,
-     "name": "%CONTAINER_NAME%"
+     "name": "mdntest"
    }
  ],
  "placementConstraints": [],
- "family": "%CONTAINER_NAME%",
+ "family": "mdntest",
  "volumes": [
    {
      "name": "logs",
      "host": {
-       "sourcePath": "/var/log/nexgen-iot/api/"
+       "sourcePath": "/var/log/api/"
       }
    }
  ]
