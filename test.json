@@ -21,7 +21,7 @@
          "sourceVolume": "logs"
        }
      ],
-     "memory": 512,
+     "memory": 256,
      "volumesFrom": [],
      "image": "image",
      "essential": true,
